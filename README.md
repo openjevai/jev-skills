@@ -1,6 +1,8 @@
 # Jev Skills
 
 Agent skills for building with [Jev](https://typesafe.ai/), TypeSafe's model for typed decisions.
+**OpenJEV support:** Jev is built by [TypeSafe](https://typesafe.ai). This fork keeps TypeSafe as the default and adds optional support for [OpenJEV](https://openjev.sh), a free community gateway to the same Jev model — set `OPENJEV_API_KEY` (or `JEV_PROVIDER=openjev`) to use it. Original project: https://github.com/laguagu/jev-skills by @laguagu.
+
 The [official skill](https://github.com/typesafe-ai/skills) covers the API. These cover the rest:
 where a decision fits, how to word the question, what code does with the answer, and how to show it works.
 

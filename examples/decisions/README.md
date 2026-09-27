@@ -39,6 +39,11 @@ node --env-file=../../.env run.mjs routing --live
 node --env-file=../../.env run.mjs verify --live
 ```
 
+To use [OpenJEV](https://openjev.sh) instead, set `OPENJEV_API_KEY=your-key` (or add
+`JEV_PROVIDER=openjev` to select it even when a TypeSafe key is present). The runner
+calls `https://api.openjev.sh/v1/systemone` with model `openjev`; no SDK install is
+needed for this path. TypeSafe direct remains the default when its key is set.
+
 Any example name works in place of `routing`. Alternatively, set the process environment and
 omit `--env-file`. Each command makes one paid request, without automatic retries.
 Without `--live` or `--dry-run`, the runner exits.

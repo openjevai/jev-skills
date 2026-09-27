@@ -36,6 +36,23 @@ Keep the whole answer while evaluating: confidence and the probability distribut
 inspect failures. Do not log sensitive state or provider error bodies. After selecting a
 route, apply the application's own fallback policy before dispatching.
 
+## OpenJEV (community gateway)
+
+[OpenJEV](https://openjev.sh) is a free public gateway to the same Jev model. It uses
+the same `state` + `questions` request shape, with two differences:
+
+| | TypeSafe direct | OpenJEV |
+| --- | --- | --- |
+| Endpoint | `https://api.typesafe.ai/v1/systemone` | `https://api.openjev.sh/v1/systemone` |
+| Model | `jev-latest` | `openjev` |
+| Key | `TYPESAFE_API_KEY` | `OPENJEV_API_KEY` (from [dashboard](https://openjev.sh/dashboard)) |
+| Overload status | 529 | 503 (also handle 429) |
+
+Set `OPENJEV_API_KEY` in the environment. The runner in `examples/decisions` selects
+the provider automatically: `JEV_PROVIDER=openjev` wins; otherwise TypeSafe if its key
+is set (default, unchanged); otherwise OpenJEV if only `OPENJEV_API_KEY` is set. No SDK
+is needed for the OpenJEV path — a standard `fetch` call works.
+
 ## Another provider or an existing framework
 
 Already using AI Gateway? Check the current [Jev gateway entry](https://vercel.com/ai-gateway/models/jev)
